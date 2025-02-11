@@ -28,6 +28,21 @@ public double multiply(@RequestParam double a, @RequestParam double b) {  // 16.
 public double divide(@RequestParam double a, @RequestParam double b) {  // 19. Reads query parameters "a" and "b".
     return calculatorService.divide(a, b);  // 20. Calls the divideNumbers method and returns the result.
 }
-
+@PostMapping("/add")
+public double add(@RequestBody CalculationRequest request) {
+	return calculatorService.add(request.getNum1(), request.getNum2());
+}
+@PostMapping("/subtract")
+public double subtract(@RequestBody CalculationRequest request) {
+	return calculatorService.subtract(request.getNum1(), request.getNum2());
+}
+@PostMapping("/multiply")
+public double multiply(@RequestBody CalculationRequest request) {
+	return calculatorService.multiply(request.getNum1(), request.getNum2());
+}
+@PostMapping("/divide")
+public double divide(@RequestBody CalculationRequest request) {
+	return calculatorService.divide(request.getNum1(), request.getNum2());
+}
 
 }
